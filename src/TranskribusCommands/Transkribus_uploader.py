@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*- coding:utf-8 -*-
 
 """
@@ -51,8 +51,12 @@ from TranskribusPyClient.common.trace import traceln, trace
 from TranskribusCommands import  sCOL, _Trnskrbs_default_url, __Trnskrbs_basic_options, _Trnskrbs_description, __Trnskrbs_do_login_stuff, _exit
 from TranskribusPyClient.client import TranskribusClient
 
-from TranskribusDU.xml_formats import  PageXml
-
+try:
+    import xml_formats.PageXml as PageXml
+except ImportError:
+    sys.path.append( os.path.join( os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname( os.path.abspath(sys.argv[0]) ))))
+                                    , "TranskribusDU", "TranskribusDU" ))
+    import xml_formats.PageXml as PageXml
 
 
 class TranskribusTranscriptUploader(TranskribusClient):

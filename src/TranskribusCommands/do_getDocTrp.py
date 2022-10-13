@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*- coding:utf-8 -*-
 
 """
@@ -67,7 +67,7 @@ class DoGetDocTrp(TranskribusClient):
     def __init__(self, trnkbsServerUrl, sHttpProxy=None, loggingLevel=logging.WARN):
         TranskribusClient.__init__(self, sServerUrl=self.sDefaultServerUrl, proxies=sHttpProxy, loggingLevel=loggingLevel)
     
-    def run(self, colId, docId, nrOfTranscripts=1):
+    def run(self, colId, docId, nrOfTranscripts=-1):
         ret = self.getDocById(colId, docId, nrOfTranscripts)
         return ret
 

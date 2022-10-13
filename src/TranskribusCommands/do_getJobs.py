@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*- coding:utf-8 -*-
 
 """
@@ -100,5 +100,7 @@ if __name__ == '__main__':
     try:
         resp = doer.getJobs()
     except Exception as e:  _exit("", 1, e)
-    traceln( json.dumps(resp, sort_keys=True, indent=4, separators=(',', ': ')))
+    #traceln(json.dumps(resp, sort_keys=True, indent=4, separators=(',', ': ')))
+    s = json.dumps(resp, sort_keys=True, indent=4, separators=(',', ': '))
+    open("jobs.json","w").write(s)
     
